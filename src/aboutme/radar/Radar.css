@@ -1,0 +1,8 @@
+.radar-chart-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 500px;
+    /* margin: 0 auto; */
+}
