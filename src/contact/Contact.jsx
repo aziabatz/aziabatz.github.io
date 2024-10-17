@@ -1,15 +1,38 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import './Contact.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 function Contact() {
+
+    const [status, setStatus] = useState('');
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const data = new FormData(form);
+    const response = await fetch('https://formspree.io/f/mldeezkn', {
+      method: 'POST',
+      body: data,
+      headers: {
+        'Accept': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      setStatus('Success! Thank you for your message.');
+      form.reset();
+    } else {
+      setStatus('Oops! There was an error.');
+    }
+  };
+
     return (
         <div className='contact-container'>
 
             <h1>Contact me!</h1>
-            <form className="contact-form">
+            <form className="contact-form" onSubmit={handleSubmit}>
                 <label htmlFor="name">Name:</label>
                 <input type="text" id="name" name="name" required />
 
@@ -21,6 +44,7 @@ function Contact() {
 
                 <button type="submit">Submit</button>
             </form>
+            {status && <p>{status}</p>}
 
             <div className="social-links">
                 <h2>My socials:</h2>
