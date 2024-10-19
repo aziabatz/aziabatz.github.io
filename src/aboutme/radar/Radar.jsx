@@ -28,7 +28,7 @@ const RadarChart = () => {
             min: 0,
             max: 100,
             ticks: {
-              stepSize: 10,
+              stepSize: 20,
             },
             grid: {
               color: 'rgba(0, 0, 0, 0.1'

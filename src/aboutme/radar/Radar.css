@@ -1,8 +1,15 @@
-.radar-chart-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: 500px;
-    /* margin: 0 auto; */
+.radar-chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .radar-chart-container {
+    max-width: 300px;
+  }
 }

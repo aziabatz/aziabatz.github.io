@@ -1,42 +1,114 @@
-/* Estilos para la barra de navegación (header) */
+/* Header.css */
+
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #007bff; /* Azul */
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle un poco de profundidad */
-    padding: 10px 0;
-    height: 35px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #007bff;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centrará el contenido horizontalmente */
+}
+
+.menu-icon {
+  display: none;
+  color: white;
+  font-size: 2rem;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+nav ul.desktop-menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul.desktop-menu li {
+  margin: 0 20px;
+}
+
+nav ul.desktop-menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+nav ul.desktop-menu li a:hover {
+  color: #ffdd57;
+}
+
+section {
+  padding-top: 60px;
+}
+
+/* Drawer */
+.drawer {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 75%;
+  max-width: 300px;
+  height: 100%;
+  background-color: #007bff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: left 0.3s ease;
+  z-index: 2000;
+  padding-top: 60px;
+}
+
+.drawer.open {
+  left: 0;
+}
+
+.drawer ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.drawer ul li {
+  margin: 20px;
+}
+
+.drawer ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.close-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: space-between; /* Espacia el icono de menú y el contenido del header */
+    padding: 10px 20px; /* Un padding extra para que el icono no esté pegado al borde */
   }
-  
-  nav ul {
-    display: flex;
-    justify-content: center; /* Centra los elementos en el medio */
-    list-style: none;
-    margin: 0;
-    padding: 0;
+
+  .menu-icon {
+    display: block;
   }
-  
-  nav ul li {
-    margin: 0 20px;
+
+  nav ul.desktop-menu {
+    display: none;
   }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    cursor: pointer;
-  }
-  
-  nav ul li a:hover {
-    color: #ffdd57; /* Color amarillo suave al hacer hover */
-  }
-  
-  /* Añadir un poco de espacio en la parte superior del contenido para que no quede debajo del header */
-  section {
-    padding-top: 60px; /* Evita que las secciones se oculten debajo del navbar */
-  }
-  
+}
